@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.hidekioka</groupId>
-    <artifactId>code-assessment</artifactId>
+    <artifactId>code-assessment-20260113</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>code-assessment</name>
+    <name>code-assessment-20260113</name>
     <description>Code Assessment</description>
     <url/>
     <licenses>
@@ -85,6 +85,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <finalName>${project.artifactId}</finalName>
     </build>
 
 </project>
