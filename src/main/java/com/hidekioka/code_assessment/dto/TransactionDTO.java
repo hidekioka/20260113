@@ -1,6 +1,7 @@
 package com.hidekioka.code_assessment.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.*;
 
 import java.io.Serializable;
@@ -26,6 +27,14 @@ public class TransactionDTO implements Serializable {
     @NotNull(message = "Purchase amount: must be a valid positive amount")
     @DecimalMin(value = "0.0", inclusive = false, message = "Purchase amount: must be a valid positive amount")
     BigDecimal purchaseAmount;
+
+    // Exchange rate for a different currency
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    BigDecimal exchangeRate;
+
+    // Converted amount in the selected currency
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    BigDecimal convertedPurchaseAmount;
 
     public Integer getId() {
         return id;
@@ -57,5 +66,21 @@ public class TransactionDTO implements Serializable {
 
     public void setPurchaseAmount(BigDecimal purchaseAmount) {
         this.purchaseAmount = purchaseAmount;
+    }
+
+    public BigDecimal getExchangeRate() {
+        return exchangeRate;
+    }
+
+    public void setExchangeRate(BigDecimal exchangeRate) {
+        this.exchangeRate = exchangeRate;
+    }
+
+    public BigDecimal getConvertedPurchaseAmount() {
+        return convertedPurchaseAmount;
+    }
+
+    public void setConvertedPurchaseAmount(BigDecimal convertedPurchaseAmount) {
+        this.convertedPurchaseAmount = convertedPurchaseAmount;
     }
 }

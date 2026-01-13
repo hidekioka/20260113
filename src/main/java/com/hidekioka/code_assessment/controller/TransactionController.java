@@ -1,6 +1,7 @@
 package com.hidekioka.code_assessment.controller;
 
 import com.hidekioka.code_assessment.dto.TransactionDTO;
+import com.hidekioka.code_assessment.exception.BusinessRuleException;
 import com.hidekioka.code_assessment.service.TransactionService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class TransactionController {
 
     // Retrieve a Purchase Transaction in a Specified Country’s Currency
     @GetMapping("/{id}")
-    public ResponseEntity<TransactionDTO> find(@PathVariable Integer id, @RequestParam("currency") Optional<String> currency) {
+    public ResponseEntity<TransactionDTO> find(@PathVariable Integer id, @RequestParam("currency") Optional<String> currency) throws BusinessRuleException {
         TransactionDTO dto = transactionService.find(id, currency);
         if (dto == null) {
             return new ResponseEntity<>(dto, HttpStatus.NOT_FOUND);
@@ -37,7 +38,7 @@ public class TransactionController {
 
     // Retrieve all Purchase Transactions in a Specified Country’s Currency
     @GetMapping("")
-    public ResponseEntity<List<TransactionDTO>> findAll(@RequestParam("currency") Optional<String> currency) {
+    public ResponseEntity<List<TransactionDTO>> findAll(@RequestParam("currency") Optional<String> currency) throws BusinessRuleException {
         List<TransactionDTO> dtoList = transactionService.findAll(currency);
         return new ResponseEntity<>(dtoList, HttpStatus.OK);
     }

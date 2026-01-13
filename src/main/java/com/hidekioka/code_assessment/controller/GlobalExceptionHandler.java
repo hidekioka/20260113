@@ -1,5 +1,6 @@
 package com.hidekioka.code_assessment.controller;
 
+import com.hidekioka.code_assessment.exception.BusinessRuleException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -26,5 +27,13 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(DateTimeParseException.class)
     public ResponseEntity<String> handleValidationExceptions(DateTimeParseException ex) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Date format is not valid.");
+    }
+
+    /**
+     * I'm using a generic business rule exception for simplicity
+     */
+    @ExceptionHandler(BusinessRuleException.class)
+    public ResponseEntity<String> handleValidationExceptions(BusinessRuleException ex) {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(ex.getMessage());
     }
 }

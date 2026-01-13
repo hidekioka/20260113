@@ -1,5 +1,8 @@
 package com.hidekioka.code_assessment.utils;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 /**
  * Some Utils for the application and for best readability of the logs
  */
@@ -71,5 +74,9 @@ public class Utils {
 
     public static String resetColor(String content) {
         return content + ANSI_RESET;
+    }
+
+    public static BigDecimal currencyRound(BigDecimal value) {
+        return value.setScale(2, RoundingMode.HALF_UP);
     }
 }
