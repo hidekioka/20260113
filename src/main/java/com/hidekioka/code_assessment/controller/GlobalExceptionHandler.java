@@ -16,8 +16,6 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    public static final String DATE_FORMAT_IS_NOT_VALID = "Date format is not valid.";
-
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidationExceptions(MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();
@@ -27,6 +25,6 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(DateTimeParseException.class)
     public ResponseEntity<String> handleValidationExceptions(DateTimeParseException ex) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(DATE_FORMAT_IS_NOT_VALID);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Date format is not valid.");
     }
 }

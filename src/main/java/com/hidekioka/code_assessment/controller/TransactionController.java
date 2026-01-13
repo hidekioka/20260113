@@ -8,6 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/api/transactions")
 public class TransactionController {
@@ -24,8 +27,18 @@ public class TransactionController {
 
     // Retrieve a Purchase Transaction in a Specified Country’s Currency
     @GetMapping("/{id}")
-    public ResponseEntity<TransactionDTO> find(@PathVariable Integer id) {
-        // TODO: implement
-        return null;
+    public ResponseEntity<TransactionDTO> find(@PathVariable Integer id, @RequestParam("currency") Optional<String> currency) {
+        TransactionDTO dto = transactionService.find(id, currency);
+        if (dto == null) {
+            return new ResponseEntity<>(dto, HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(dto, HttpStatus.OK);
+    }
+
+    // Retrieve all Purchase Transactions in a Specified Country’s Currency
+    @GetMapping("")
+    public ResponseEntity<List<TransactionDTO>> findAll(@RequestParam("currency") Optional<String> currency) {
+        List<TransactionDTO> dtoList = transactionService.findAll(currency);
+        return new ResponseEntity<>(dtoList, HttpStatus.OK);
     }
 }
