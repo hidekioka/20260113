@@ -1,0 +1,507 @@
+{
+	"info": {
+		"_postman_id": "808d4e68-e242-423f-8477-4e4b88d58897",
+		"name": "20260113",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27737105"
+	},
+	"item": [
+		{
+			"name": "create 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"McDonald's purchase\",\r\n    \"transactionDate\": \"2026-01-10\",\r\n    \"purchaseAmount\": 15\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Steam purchase\",\r\n    \"transactionDate\": \"2025-01-01\",\r\n    \"purchaseAmount\": 60\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create 3 (rounding check)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Amazon purchase\",\r\n    \"transactionDate\": \"2024-01-12\",\r\n    \"purchaseAmount\": 10.57954536\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create 4 (rounding check)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Temu purchase\",\r\n    \"transactionDate\": \"2023-01-13\",\r\n    \"purchaseAmount\": 1.212121\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create invalid id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 100,\r\n    \"description\": \"Amazon purchase\",\r\n    \"transactionDate\": \"2026-01-13\",\r\n    \"purchaseAmount\": 10.50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create invalid date (null)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Amazon purchase\",\r\n    \"purchaseAmount\": 10.50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create invalid date (wrong format)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Amazon purchase\",\r\n    \"transactionDate\": \"01/01/2026\",\r\n    \"purchaseAmount\": 10.50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create invalid date (future)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Temu purchase\",\r\n    \"transactionDate\": \"2027-01-13\",\r\n    \"purchaseAmount\": 1.212121\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create invalid description (exceeds length)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"This is a long description that exceeds the 50 character length of the message\",\r\n    \"transactionDate\": \"2026-01-13\",\r\n    \"purchaseAmount\": 10.50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create invalid purchaseamount (null)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Amazon purchase\",\r\n    \"transactionDate\": \"2026-01-13\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create invalid purchaseamount (negative)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Amazon purchase\",\r\n    \"transactionDate\": \"2026-01-13\",\r\n    \"purchaseAmount\": -10.50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find id =1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/transactions/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find id =1 currency=BRL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/transactions/1?currency=Brazil-Real",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions",
+						"1"
+					],
+					"query": [
+						{
+							"key": "currency",
+							"value": "Brazil-Real"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find invalid id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/transactions/100",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions",
+						"100"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find all currency=BRL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/transactions?currency=Brazil-Real",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "currency",
+							"value": "Brazil-Real"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create 5 (old date)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"Walmart purchase\",\r\n    \"transactionDate\": \"1970-01-11\",\r\n    \"purchaseAmount\": 5.60\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find invalid - date without exchange",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/transactions/5?currency=Brazil-Real",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions",
+						"5"
+					],
+					"query": [
+						{
+							"key": "currency",
+							"value": "Brazil-Real"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find invalid - date without exchange Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/transactions?currency=Brazil-Real",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"transactions"
+					],
+					"query": [
+						{
+							"key": "currency",
+							"value": "Brazil-Real"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
